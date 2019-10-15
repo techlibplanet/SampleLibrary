@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SampleLibrary</string>
+    <string name="preference_file_key">shared_pref_key</string>
+</resources>
