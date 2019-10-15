@@ -43,17 +43,8 @@ class SharedPreferenceProvider(private val context: Context) {
         return editor
     }
 
-
     fun removePref(key: String) {
         applyPref(prefEditor().remove(key))
-    }
-
-    fun removePref(vararg keys: String) {
-        val editor = prefEditor()
-        for (k in keys) {
-            editor.remove(k)
-        }
-        applyPref(editor)
     }
 
     fun <T> getPref(key: String, defaultValue: T): T {
@@ -71,12 +62,6 @@ class SharedPreferenceProvider(private val context: Context) {
 
     fun prefEditor(): SharedPreferences.Editor = defaultSharedPreferences.edit()
 
-
-    inline fun addBulkPrefs(func: (editor: SharedPreferences.Editor) -> Unit) {
-        val editor = prefEditor()
-        func(editor)
-        applyPref(editor)
-    }
 
     fun applyPref(editor: SharedPreferences.Editor) {
         when {
