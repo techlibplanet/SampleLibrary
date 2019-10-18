@@ -6,6 +6,8 @@ import android.os.Build
 import com.example.samplelibrary.R
 
 object SharedPrefKeys {
+    const val FIRST_NAME = "first_name"
+    const val LAST_NAME = "last_name"
     const val EMAIL = "email"
 }
 

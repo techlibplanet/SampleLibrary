@@ -50,8 +50,11 @@ dependencies {
     // Koin for Android
     implementation "org.koin:koin-android:$koin_version"
     // or Koin for view model features
-    implementation "org.koin:koin-android-viewmodel:$koin_version"
+    //implementation "org.koin:koin-android-viewmodel:$koin_version"
 
     // Koin for Unit tests
     testImplementation "org.koin:koin-test:$koin_version"
+
+    // Koin AndroidX ViewModel features
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 }
