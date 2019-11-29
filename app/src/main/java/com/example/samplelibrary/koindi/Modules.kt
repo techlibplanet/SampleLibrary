@@ -15,5 +15,6 @@ val myModule =
             SharedPreferenceProvider(get())
         }
 
-        viewModel { TestViewModel() }
+        viewModel { TestViewModel(get()) }
+
     }
