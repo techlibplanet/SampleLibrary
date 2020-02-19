@@ -16,5 +16,4 @@ val myModule =
         }
 
         viewModel { TestViewModel(get()) }
-
     }

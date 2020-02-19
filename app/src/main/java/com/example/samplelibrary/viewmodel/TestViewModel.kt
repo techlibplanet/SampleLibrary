@@ -5,8 +5,9 @@ import com.example.samplelibrary.helper.SharedPrefKeys.FIRST_NAME
 import com.example.samplelibrary.helper.SharedPrefKeys.LAST_NAME
 import com.example.samplelibrary.helper.SharedPreferenceProvider
 
-class TestViewModel(val sharedPreferenceProvider: SharedPreferenceProvider) : ViewModel() {
-
+class TestViewModel(
+    val sharedPreferenceProvider: SharedPreferenceProvider
+) : ViewModel() {
 
     fun saveData(firstName: String, lastName: String) {
         sharedPreferenceProvider.putPref(FIRST_NAME, firstName)

@@ -29,7 +29,7 @@ class SharedPreferenceProvider(private val context: Context) {
         applyPref(addToPrefEditor(editor, key, value))
     }
 
-    fun <T> addToPrefEditor(
+    private fun <T> addToPrefEditor(
         editor: SharedPreferences.Editor,
         key: String,
         value: T
@@ -62,10 +62,10 @@ class SharedPreferenceProvider(private val context: Context) {
         return value as T
     }
 
-    fun prefEditor(): SharedPreferences.Editor = defaultSharedPreferences.edit()
+    private fun prefEditor(): SharedPreferences.Editor = defaultSharedPreferences.edit()
 
 
-    fun applyPref(editor: SharedPreferences.Editor) {
+    private fun applyPref(editor: SharedPreferences.Editor) {
         when {
             Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD -> editor.commit()
             else -> editor.apply()
