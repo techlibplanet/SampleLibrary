@@ -1,11 +1,11 @@
 package com.example.samplelibrary.helper
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Flowable
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.Single
-import io.reactivex.rxjava3.disposables.Disposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.Flowable
+import io.reactivex.Observable
+import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
 
@@ -48,9 +48,11 @@ inline fun <T> Single<T>.processRequest(
 inline fun <T> Single<T>.processRequest(crossinline onSuccess: (result: T) -> Unit): Disposable {
     return subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
-        .subscribe { result ->
-            onSuccess(result)
-        }
+        .subscribe(
+            { result ->
+                onSuccess(result)
+            }
+        )
 }
 
 fun <T> Single<T>.processRequest(): Disposable {
@@ -80,9 +82,11 @@ inline fun <T> Flowable<T>.processRequest(
 inline fun <T> Flowable<T>.processRequest(crossinline onNext: (result: T) -> Unit): Disposable {
     return subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
-        .subscribe { result ->
-            onNext(result)
-        }
+        .subscribe(
+            { result ->
+                onNext(result)
+            }
+        )
 }
 
 fun <T> Flowable<T>.processRequest(): Disposable {

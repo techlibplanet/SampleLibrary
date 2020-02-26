@@ -1,39 +1,32 @@
 package com.example.samplelibrary
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.samplelibrary.viewmodel.MyMandirViewModel
 import com.example.samplelibrary.viewmodel.TestViewModel
+import io.reactivex.disposables.CompositeDisposable
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
+
 
 class MainActivity : AppCompatActivity() {
 
-    // Lazy injected SharedPreferenceProvider
-//    private val sharedPreferenceProvider by inject<SharedPreferenceProvider>()
-
-
-    //    private lateinit var model : TestViewModel
-//     Injected by lazy
     val model by viewModel<TestViewModel>()
+    val myMandirViewModel by viewModel<MyMandirViewModel>()
+
+    private lateinit var compositeDisposable: CompositeDisposable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//         If you are not injecting by lazy then assign it in onCreate
-//        model = getViewModel<TestViewModel>()
-
-
-//        sharedPreferenceProvider.putPref(SharedPrefKeys.FIRST_NAME, "Mayank")
-//        sharedPreferenceProvider.putPref(SharedPrefKeys.LAST_NAME, "Sharma")
-
-//        model.firstName = sharedPreferenceProvider.getPref(SharedPrefKeys.FIRST_NAME, "")
-//        model.lastName = sharedPreferenceProvider.getPref(SharedPrefKeys.LAST_NAME, "")
-
         model.saveData("Mayank", "Shilpa")
+        Timber.d(model.getData())
 
-        Log.d("TAG", model.getData())
+        compositeDisposable = CompositeDisposable()
 
+        myMandirViewModel.getData()
 
     }
+
 }
