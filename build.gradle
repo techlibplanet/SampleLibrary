@@ -7,6 +7,8 @@ buildscript {
         mockitoVersion = '3.0.0'
         nhaarmanMokitoVersion = '2.1.0'
         archTestingVersion = '1.1.1'
+        rxjava_version = '3.0.0'
+        retrofit_version = '2.4.0'
     }
     repositories {
         google()
@@ -25,6 +27,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://oss.jfrog.org/libs-snapshot" }
 
     }
 }

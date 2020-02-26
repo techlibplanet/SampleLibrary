@@ -57,4 +57,22 @@ dependencies {
 
     // Koin AndroidX ViewModel features
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+
+    //RxJava
+    implementation "io.reactivex.rxjava3:rxjava:$rxjava_version"
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+    implementation "io.reactivex.rxjava3:rxandroid:$rxjava_version"
+
+    // Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.jakewharton.timber:timber:4.7.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
+
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.6'
 }

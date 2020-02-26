@@ -6,7 +6,7 @@ import com.example.samplelibrary.helper.SharedPrefKeys.LAST_NAME
 import com.example.samplelibrary.helper.SharedPreferenceProvider
 
 class TestViewModel(
-    val sharedPreferenceProvider: SharedPreferenceProvider
+    private val sharedPreferenceProvider: SharedPreferenceProvider
 ) : ViewModel() {
 
     fun saveData(firstName: String, lastName: String) {
